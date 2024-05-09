@@ -34,6 +34,6 @@ end
   Ticket.create(
     price: Faker::Number.decimal(l_digits: 3, r_digits: 3),
     sector: Faker::Number.between(from: 1, to: 10),
-    type: ['VIP', 'Regular', 'Economy'].sample,
+    category: ['VIP', 'Regular', 'Economy'].sample
   )
 end
