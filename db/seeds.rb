@@ -14,9 +14,8 @@
     phone_number: Faker::PhoneNumber.phone_number,
     birth_date: Faker::Date.birthday(min_age: 18, max_age: 65),
     id_document: Faker::IdNumber.valid,
-    country: Faker::Address.country,
     address: Faker::Address.full_address,
-    password: Faker::Internet.password(min_length: 8),
+    encrypted_password: Faker::Internet.password(min_length: 8),
     allow_alert: [true, false].sample
   )
 end
