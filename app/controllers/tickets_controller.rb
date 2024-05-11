@@ -1,4 +1,5 @@
 class TicketsController < ApplicationController
+
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:new, :create, :edit, :update]
   before_action :set_event, only: [:new, :create, :edit, :update]
