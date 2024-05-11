@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_10_020029) do
-
+ActiveRecord::Schema[7.1].define(version: 2024_05_11_215924) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,6 +29,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_10_020029) do
     t.datetime "updated_at", null: false
     t.bigint "ticket_id", null: false
     t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
+    t.index ["event_id"], name: "index_orders_on_event_id"
     t.index ["ticket_id"], name: "index_orders_on_ticket_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -64,6 +65,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_10_020029) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "orders", "events"
   add_foreign_key "orders", "tickets"
   add_foreign_key "orders", "users"
   add_foreign_key "tickets", "events"
