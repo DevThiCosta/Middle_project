@@ -8,19 +8,23 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+# Create 10 user records
+require 'faker'
 10.times do
-  User.create(
+ p User.create!(
     name: "#{Faker::Name.first_name} #{Faker::Name.last_name}",
-    phone_number: Faker::PhoneNumber.phone_number,
+    phone_number: Faker::PhoneNumber.phone_number.to_i,
     birth_date: Faker::Date.birthday(min_age: 18, max_age: 65),
     id_document: Faker::IdNumber.valid,
-    country: Faker::Address.country,
     address: Faker::Address.full_address,
+    encrypted_password: Faker::Internet.password(min_length: 8),
+    allow_alert: [true, false].sample,
+    email: Faker::Internet.email,
     password: Faker::Internet.password(min_length: 8),
-    allow_alert: [true, false].sample
   )
 end
 
+# Create 20 event records
 20.times do
   Event.create(
     local: Faker::Address.full_address,
@@ -30,10 +34,13 @@ end
   )
 end
 
+# Create 100 ticket records
 100.times do
-  Ticket.create(
+ p Ticket.create!(
     price: Faker::Number.decimal(l_digits: 3, r_digits: 3),
     sector: Faker::Number.between(from: 1, to: 10),
-    category: ['VIP', 'Regular', 'Economy'].sample
+    category: [['VIP'], ['Regular'], ['Economy']].sample,
+    event: Event.all.sample,
+    user: User.all.sample
   )
 end
