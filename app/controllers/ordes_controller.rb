@@ -1,4 +1,4 @@
-class TicketsController < ApplicationController
+class OrdersController < ApplicationController
 
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:new, :create, :edit, :update]
@@ -6,25 +6,26 @@ class TicketsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @tickets = Ticket.all
+    @orders = Order.all
     render :index
   end
 
   def show
-    @ticket = Ticket.find(params[:id])
+    @order = Order.find(params[:id])
     render :show
   end
 
   def new
-    @ticket = Ticket.new
+    @order = Order.new
     render :new
   end
 
   def create
-    @ticket = Ticket.new(ticket_params)
-    @ticket.user = @user
-    @ticket.event = @event
-    if @ticket.save
+    @order = Order.new(ticket_params)
+    @order.user = @user
+    @order.event = @event
+    @order.ticket = @tickect
+    if @order.save
       redirect_to event_path(@event)
       else
         render :new, status: :unprocessable_entity
@@ -32,20 +33,20 @@ class TicketsController < ApplicationController
   end
 
   def edit
-    @ticket = Ticket.find(params[:id])
+    @order = Order.find(params[:id])
     render :edit
   end
 
   def update
-    @ticket = Ticket.find(params[:id])
-    @ticket.update(ticket_params)
-    redirect_to ticket_path(@ticket)
+    @order = Order.find(params[:id])
+    @order.update(order_params)
+    redirect_to order_path(@order)
   end
 
   def destroy
-    @ticket = Ticket.find(params[:id])
-    @ticket.destroy
-    redirect_to user_path(@ticket.user), status: :see_other
+    @order = Order.find(params[:id])
+    @order.destroy
+    redirect_to user_path(@order.user), status: :see_other
   end
 
   private
@@ -59,7 +60,11 @@ class TicketsController < ApplicationController
     @event = Event.find(params[:event_id])
   end
 
-  def ticket_params
+  def set_ticket
+    @event = Event.find(params[:event_id])
+  end
+
+  def order_params
     params.require(:ticket).permit(:price, :category, :sector)
   end
 
