@@ -1,5 +1,4 @@
 class Event < ApplicationRecord
-
   validates :local, presence: true
   validates :date, presence: true
   validates :artist, presence: true
