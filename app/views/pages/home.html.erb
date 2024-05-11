@@ -1,40 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Middle</a>
-  <div class="container">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <form class="form-inline my-2 my-lg-0">
-        <div class="input-group">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-<ul class="navbar-nav ms-auto">
-    <li class="nav-item mb-2">
-        <a class="nav-link" href="#home">Home</a>
-    </li>
-    <li class="nav-item mb-2">
-        <a class="nav-link" href="#news">News</a>
-    </li>
-    <li class="nav-item mb-2">
-        <a class="nav-link" href="#contact">Contact</a>
-    </li>
-    <li class="nav-item mb-2">
-        <a class="nav-link" href="#about">About</a>
-    </li>
-    <li class="nav-item mb-2">
-        <%= link_to users_path do %>
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large", style: "width: 50px; height: 50px;" %>
-        <% end %>
-    </li>
-</ul>
-</nav>
+<%= render "shared/navbar" %>
 
 <div class="cards">
   <% image_urls = [
@@ -95,15 +59,22 @@
         <% slice.each do |image_url| %>
           <div class="col-2">
             <div class="card-category m-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_url %>)">
-              <%= image_tag(image_url, class: "card-image", alt: "card-image") %>
+                <%= image_tag(image_url, class: "card-image", alt: "card-image", style: "object-fit: cover; width: 100%; height: 100%;") %>
+              <div class="card-info">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-name">Product Name</h5>
+                    <p class="card-price">$9.99</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         <% end %>
       </div>
     <% end %>
   </div>
-</div>
 
-<footer class="bg-primary text-white text-center fixed-bottom">
+<footer class="text-white text-center fixed-bottom bg-dark">
   <p>© <%= Time.now.year %> Middle</p>
 </footer>

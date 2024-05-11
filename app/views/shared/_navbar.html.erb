@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    <%= image_tag "logo.png", class: "logo", alt: "logo", style: "width: 100px; height: 100px;" %>
+  </a>
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <form class="form-inline my-2 my-lg-0">
+        <div class="input-group">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <ul class="navbar-nav ms-auto">
+    <li class="nav-item mb-2">
+      <a class="nav-link" href="#home">
+        <i class="fas fa-home"></i> Home
+      </a>
+    </li>
+    <li class="nav-item mb-2">
+      <a class="nav-link" href="#news">
+        <i class="fas fa-newspaper"></i> News
+      </a>
+    </li>
+    <li class="nav-item mb-2">
+      <a class="nav-link" href="#contact">
+        <i class="fas fa-envelope"></i> Contact
+      </a>
+    </li>
+    <li class="nav-item mb-2">
+      <a class="nav-link" href="#about">
+        <i class="fas fa-info-circle"></i> About
+      </a>
+    </li>
+    <li class="nav-item mb-2">
+      <%= link_to new_user_session_path do %>
+        <%= image_tag("NoLoginAvatar.png", class: "avatar-large", alt: "avatar-large", style: "width: 50px; height: 50px;") %>
+      <% end %>
+    </li>
+  </ul>
+</nav>

@@ -1,6 +1,8 @@
 class User < ApplicationRecord
+  has_many :tickets, dependent: :destroy
+
   validates :name, presence: true, length: { minimum: 2 }
-  validates :phone_number, presence: true, numericality: { only_integer: true }, length: { is: 10 }
+  validates :phone_number, presence: true, numericality: { only_integer: true }
   validates :birth_date, presence: true
   validates :id_document, presence: true, uniqueness: true
   validates :address, presence: true

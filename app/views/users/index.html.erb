@@ -10,13 +10,13 @@
           <div class="card-body">
             <ul class="nav nav-tabs justify-content-center">
               <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#personal-info">Personal Information</a>
+                <a class="nav-link active" data-tab="personal-info" href="#">Personal Information</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#security-privacy">Security and Privacy</a>
+                <a class="nav-link" data-tab="security-privacy" href="#">Security and Privacy</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#preferences">Preferences</a>
+                <a class="nav-link" data-tab="preferences" href="#">Preferences</a>
               </li>
             </ul>
             <div class="tab-content mt-3">
@@ -45,8 +45,8 @@
                 </form>
               </div>
             </div>
-            <!-- Delete button -->
           </div>
+          <!-- Delete button -->
         </div>
       </div>
     </div>
@@ -58,3 +58,27 @@
       </div>
     </div>
   </div>
+
+  <script>
+    // Get all the tab links
+    var tabLinks = document.querySelectorAll('.nav-link');
+
+    // Add click event listeners to each tab link
+    tabLinks.forEach(tabLink => {
+      tabLink.addEventListener('click', (event) => {
+        console.log('clicked');
+        event.preventDefault();
+
+        // Get the target tab ID from the data-tab attribute
+        const targetTabId = tabLink.getAttribute('data-tab');
+
+        // Remove the 'active' class from all tab links and tab panes
+        tabLinks.forEach(link => link.classList.remove('active'));
+        document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('show', 'active'));
+
+        // Add the 'active' class to the clicked tab link and show the corresponding tab pane
+        tabLink.classList.add('active');
+        document.getElementById(targetTabId).classList.add('show', 'active');
+      });
+    });
+  </script>
