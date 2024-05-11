@@ -11,4 +11,8 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :users
+  resources :events, except: [:new, :create] do
+    resources :tickets, only: [:new, :create]
+  end
+  resources :tickets, except: [:new, :create]
 end
