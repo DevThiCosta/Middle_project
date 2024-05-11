@@ -1,2 +1,84 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <!-- User Avatar -->
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large", style: "width: 120px; height: 120px;" %>
+      </div>
+      <div class="col-md-8 mx-auto">
+        <div class="card">
+          <h1 class="display-4 text-center">name</h1>
+          <div class="card-body">
+            <ul class="nav nav-tabs justify-content-center">
+              <li class="nav-item">
+                <a class="nav-link active" data-tab="personal-info" href="#">Personal Information</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-tab="security-privacy" href="#">Security and Privacy</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-tab="preferences" href="#">Preferences</a>
+              </li>
+            </ul>
+            <div class="tab-content mt-3">
+              <div class="tab-pane fade show active" id="personal-info">
+                <p class="lead">Email: sdjgsfdihgbv@;dfjhn.com</p>
+                <p class="lead">Phone Number: 425-425-4255</p>
+                <p class="lead">Date of Birth: 01/01/0001</p>
+                <p class="lead">Identification Document: 95574544522</p>
+                <p class="lead">Address: Street: dfisxchjvbdifhbvnd</p>
+              </div>
+              <div class="tab-pane fade" id="security-privacy">
+                <!-- Security and Privacy Information -->
+                <p class="lead">Security and privacy information goes here...</p>
+                <p class="lead">Password: ********</p>
+              </div>
+              <div class="tab-pane fade" id="configurations">
+                <!-- Configuration Form -->
+                <form>
+                  <!-- Add configuration form fields here -->
+                </form>
+              </div>
+              <div class="tab-pane fade" id="preferences">
+                <!-- Preferences Form -->
+                <form>
+                  <!-- Add preferences form fields here -->
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- Delete button -->
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-12 text-center">
+        <a href="#" class="btn btn-primary">Edit Profile</a>
+        <%= link_to "Return to Home", root_path, class: "btn btn-secondary" %>
+        <button class="btn btn-danger">Delete account</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Get all the tab links
+    var tabLinks = document.querySelectorAll('.nav-link');
+
+    // Add click event listeners to each tab link
+    tabLinks.forEach(tabLink => {
+      tabLink.addEventListener('click', (event) => {
+        console.log('clicked');
+        event.preventDefault();
+
+        // Get the target tab ID from the data-tab attribute
+        const targetTabId = tabLink.getAttribute('data-tab');
+
+        // Remove the 'active' class from all tab links and tab panes
+        tabLinks.forEach(link => link.classList.remove('active'));
+        document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('show', 'active'));
+
+        // Add the 'active' class to the clicked tab link and show the corresponding tab pane
+        tabLink.classList.add('active');
+        document.getElementById(targetTabId).classList.add('show', 'active');
+      });
+    });
+  </script>
