@@ -1,0 +1,5 @@
+<h1>But ticket</h1>
+<%= simple_form_for [@user, @ticket] do |f| %>
+  <%= f.input :content %>
+  <%= f.submit "Buy ticket", class: "btn btn-primary" %>
+<% end %>
