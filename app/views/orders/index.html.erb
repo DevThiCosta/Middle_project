@@ -1,0 +1,7 @@
+<h1>Here you are your order</h1>
+
+<% @orders.each do |order| %>
+  <div class="container">
+    <p><%= order.event.local %></p>
+  </div>
+<% end %>
