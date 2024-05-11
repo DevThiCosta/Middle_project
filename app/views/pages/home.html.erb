@@ -1,8 +1,109 @@
-  <header>
-    <h1 class="display-4 text-center">Welcome to Middle</h1>
-    <p class="lead text-center">Find and buy tickets for exciting events!</p>
-  </header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Middle</a>
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <form class="form-inline my-2 my-lg-0">
+        <div class="input-group">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+<ul class="navbar-nav ms-auto">
+    <li class="nav-item mb-2">
+        <a class="nav-link" href="#home">Home</a>
+    </li>
+    <li class="nav-item mb-2">
+        <a class="nav-link" href="#news">News</a>
+    </li>
+    <li class="nav-item mb-2">
+        <a class="nav-link" href="#contact">Contact</a>
+    </li>
+    <li class="nav-item mb-2">
+        <a class="nav-link" href="#about">About</a>
+    </li>
+    <li class="nav-item mb-2">
+        <%= link_to users_path do %>
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large", style: "width: 50px; height: 50px;" %>
+        <% end %>
+    </li>
+</ul>
+</nav>
 
-  <footer class="bg-primary text-white text-center">
-    <p>© <%= Time.now.year %> Your Event Marketplace</p>
-  </footer>
+<div class="cards">
+  <% image_urls = [
+    "https://picsum.photos/200/300",
+    "https://picsum.photos/200/301",
+    "https://picsum.photos/200/302",
+    "https://picsum.photos/200/303",
+    "https://picsum.photos/200/304",
+    "https://picsum.photos/200/305",
+    "https://picsum.photos/200/306",
+    "https://picsum.photos/200/307",
+    "https://picsum.photos/200/308",
+    "https://picsum.photos/200/309",
+    "https://picsum.photos/200/310",
+    "https://picsum.photos/200/311",
+    "https://picsum.photos/200/312",
+    "https://picsum.photos/200/313",
+    "https://picsum.photos/200/314",
+    "https://picsum.photos/200/315",
+    "https://picsum.photos/200/316",
+    "https://picsum.photos/200/317",
+    "https://picsum.photos/200/318",
+    "https://picsum.photos/200/319",
+    "https://picsum.photos/200/320",
+    "https://picsum.photos/200/321",
+    "https://picsum.photos/200/322",
+    "https://picsum.photos/200/323",
+    "https://picsum.photos/200/324",
+    "https://picsum.photos/200/325",
+    "https://picsum.photos/200/326",
+    "https://picsum.photos/200/327",
+    "https://picsum.photos/200/328",
+    "https://picsum.photos/200/329",
+    "https://picsum.photos/200/330",
+    "https://picsum.photos/200/331",
+    "https://picsum.photos/200/332",
+    "https://picsum.photos/200/333",
+    "https://picsum.photos/200/334",
+    "https://picsum.photos/200/335",
+    "https://picsum.photos/200/336",
+    "https://picsum.photos/200/337",
+    "https://picsum.photos/200/338",
+    "https://picsum.photos/200/339",
+    "https://picsum.photos/200/340",
+    "https://picsum.photos/200/341",
+    "https://picsum.photos/200/342",
+    "https://picsum.photos/200/343",
+    "https://picsum.photos/200/344",
+    "https://picsum.photos/200/345",
+    "https://picsum.photos/200/346",
+    "https://picsum.photos/200/347",
+
+  ] %>
+
+  <div class="card-row col-12">
+    <% image_urls.each_slice(6) do |slice| %>
+      <div class="row">
+        <% slice.each do |image_url| %>
+          <div class="col-2">
+            <div class="card-category m-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_url %>)">
+              <%= image_tag(image_url, class: "card-image", alt: "card-image") %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<footer class="bg-primary text-white text-center fixed-bottom">
+  <p>© <%= Time.now.year %> Middle</p>
+</footer>
