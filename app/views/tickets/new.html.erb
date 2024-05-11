@@ -1,5 +1,7 @@
-<h1>But ticket</h1>
-<%= simple_form_for [@user, @ticket] do |f| %>
-  <%= f.input :content %>
-  <%= f.submit "Buy ticket", class: "btn btn-primary" %>
+<h1>Sell ticket</h1>
+<%= simple_form_for [@event, @ticket] do |f| %>
+  <%= f.input :price %>
+  <%= f.input :sector %>
+  <%= f.input :category, collection: [["VIP"], ["Economy"]] %>
+  <%= f.submit "Sell ticket", class: "btn btn-primary" %>
 <% end %>
