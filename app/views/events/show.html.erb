@@ -1,0 +1,16 @@
+<h1><%= @event.local %></h1>
+
+
+<%= link_to "Sell ticket", new_event_ticket_path(@event.id)  %>
+
+<ul>
+<% @tickets.each do |ticket| %>
+<li>
+<div>
+<p><%= ticket.sector %></p>
+<small> R$<%= ticket.price %> </small>
+<%= link_to "Bye ticket", "#" %>
+</div>
+</li>
+<% end %>
+</ul>
