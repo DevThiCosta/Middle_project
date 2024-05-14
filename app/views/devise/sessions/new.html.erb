@@ -1,6 +1,5 @@
-  <header style="background-color: #212529;">
-    <%= link_to image_tag("logo.png", class: "logo", alt: "logo", style: "width: 100px; height: 100px;"), root_path %>
-    </header>
+<%= render "shared/navbar" %>
+
 <div class="container">
   <div class="card text-center m-5">
     <div class="card-body">
@@ -28,6 +27,4 @@
   </div>
 </div>
 
-<footer class="text-white text-center fixed-bottom bg-dark">
-  <p>© <%= Time.now.year %> Middle</p>
-</footer>
+<%= render "shared/footer" %>

@@ -25,7 +25,7 @@ require 'faker'
 end
 
 # Create 20 event records
-20.times do
+40.times do
   Event.create(
     local: Faker::Address.full_address,
     date: Faker::Date.forward(days: 365),

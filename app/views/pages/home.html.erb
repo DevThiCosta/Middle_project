@@ -63,8 +63,8 @@
               <div class="card-info">
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="card-name">Product Name</h5>
-                    <p class="card-price">$9.99</p>
+                    <h5 class="card-name"><%= Event.all.sample.artist %></h5>
+                    <p class="card-price">$<%= sprintf('%.2f', Ticket.all.sample.price) %></p>
                   </div>
                 </div>
               </div>
@@ -75,6 +75,4 @@
     <% end %>
   </div>
 
-<footer class="text-white text-center fixed-bottom bg-dark">
-  <p>© <%= Time.now.year %> Middle</p>
-</footer>
+<%= render "shared/footer" %>
