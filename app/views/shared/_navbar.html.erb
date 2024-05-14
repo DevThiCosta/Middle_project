@@ -12,9 +12,9 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <form class="form-inline my-2 my-lg-0">
         <div class="input-group">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search" id="searchInput">
           <div class="input-group-append">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit" onclick="filterCards()">Search</button>
           </div>
         </div>
       </form>
@@ -22,24 +22,24 @@
   </div>
   <ul class="navbar-nav ms-auto">
     <li class="nav-item mb-2">
-      <a class="nav-link" href="#home">
-        <i class="fas fa-home"></i> Home
-      </a>
+      <%= link_to root_path, class: "nav-link" do %>
+      <i class="fas fa-home"></i> Home
+      <% end %>
     </li>
     <li class="nav-item mb-2">
-      <a class="nav-link" href="#news">
-        <i class="fas fa-newspaper"></i> News
-      </a>
+      <%= link_to news_path, class: "nav-link" do %>
+      <i class="fas fa-newspaper"></i> News
+      <% end %>
     </li>
     <li class="nav-item mb-2">
-      <a class="nav-link" href="#contact">
-        <i class="fas fa-envelope"></i> Contact
-      </a>
+      <%= link_to contact_path, class: "nav-link" do %>
+      <i class="fas fa-envelope"></i> Contact
+      <% end %>
     </li>
     <li class="nav-item mb-2">
-      <a class="nav-link" href="#about">
-        <i class="fas fa-info-circle"></i> About
-      </a>
+      <%= link_to about_path, class: "nav-link" do %>
+      <i class="fas fa-info-circle"></i> About
+      <% end %>
     </li>
     <li class="nav-item mb-2">
       <%= link_to new_user_session_path do %>

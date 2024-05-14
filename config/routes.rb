@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  get "/about" => "pages#about"
+  get "/contact" => "pages#contact"
+  get "/news" => "pages#news"
 
   resources :users
   resources :events, except: [:new, :create] do
