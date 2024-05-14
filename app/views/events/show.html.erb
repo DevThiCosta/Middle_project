@@ -9,7 +9,7 @@
 <div>
 <p><%= ticket.sector %></p>
 <small> R$<%= ticket.price %> </small>
-<%= link_to "Bye ticket", "#" %>
+<%= link_to "Buy ticket", new_event_ticket_order_path(@event, ticket) %>
 </div>
 </li>
 <% end %>

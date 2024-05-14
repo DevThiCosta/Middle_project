@@ -15,7 +15,10 @@ Rails.application.routes.draw do
 
   resources :users
   resources :events, except: [:new, :create] do
-    resources :tickets, only: [:new, :create]
+    resources :tickets, only: [:new, :create] do
+      resources :orders, only: [:new, :create]
+    end
   end
   resources :tickets, except: [:new, :create]
+  resources :orders, only: :index
 end
