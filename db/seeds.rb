@@ -7,9 +7,59 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+image_urls = [
+  "https://picsum.photos/200/300",
+  "https://picsum.photos/200/301",
+  "https://picsum.photos/200/302",
+  "https://picsum.photos/200/303",
+  "https://picsum.photos/200/304",
+  "https://picsum.photos/200/305",
+  "https://picsum.photos/200/306",
+  "https://picsum.photos/200/307",
+  "https://picsum.photos/200/308",
+  "https://picsum.photos/200/309",
+  "https://picsum.photos/200/310",
+  "https://picsum.photos/200/311",
+  "https://picsum.photos/200/312",
+  "https://picsum.photos/200/313",
+  "https://picsum.photos/200/314",
+  "https://picsum.photos/200/315",
+  "https://picsum.photos/200/316",
+  "https://picsum.photos/200/317",
+  "https://picsum.photos/200/318",
+  "https://picsum.photos/200/319",
+  "https://picsum.photos/200/320",
+  "https://picsum.photos/200/321",
+  "https://picsum.photos/200/322",
+  "https://picsum.photos/200/323",
+  "https://picsum.photos/200/324",
+  "https://picsum.photos/200/325",
+  "https://picsum.photos/200/326",
+  "https://picsum.photos/200/327",
+  "https://picsum.photos/200/328",
+  "https://picsum.photos/200/329",
+  "https://picsum.photos/200/330",
+  "https://picsum.photos/200/331",
+  "https://picsum.photos/200/332",
+  "https://picsum.photos/200/333",
+  "https://picsum.photos/200/334",
+  "https://picsum.photos/200/335",
+  "https://picsum.photos/200/336",
+  "https://picsum.photos/200/337",
+  "https://picsum.photos/200/338",
+  "https://picsum.photos/200/339",
+  "https://picsum.photos/200/340",
+  "https://picsum.photos/200/341",
+  "https://picsum.photos/200/342",
+  "https://picsum.photos/200/343",
+  "https://picsum.photos/200/344",
+  "https://picsum.photos/200/345",
+  "https://picsum.photos/200/346",
+  "https://picsum.photos/200/347",
+
+]
 
 # Create 10 user records
-require 'faker'
 10.times do
  p User.create!(
     name: "#{Faker::Name.first_name} #{Faker::Name.last_name}",
