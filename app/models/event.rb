@@ -5,5 +5,5 @@ class Event < ApplicationRecord
   validates :age_rating, presence: true, numericality: { only_integer: true }
 
   has_many :tickets, dependent: :destroy
-  has_one_attached :photo
+  #has_one_attached :photo
 end

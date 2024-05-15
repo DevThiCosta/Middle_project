@@ -8,55 +8,56 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 image_urls = [
-  "https://picsum.photos/200/300",
-  "https://picsum.photos/200/301",
-  "https://picsum.photos/200/302",
-  "https://picsum.photos/200/303",
-  "https://picsum.photos/200/304",
-  "https://picsum.photos/200/305",
-  "https://picsum.photos/200/306",
-  "https://picsum.photos/200/307",
-  "https://picsum.photos/200/308",
-  "https://picsum.photos/200/309",
-  "https://picsum.photos/200/310",
-  "https://picsum.photos/200/311",
-  "https://picsum.photos/200/312",
-  "https://picsum.photos/200/313",
-  "https://picsum.photos/200/314",
-  "https://picsum.photos/200/315",
-  "https://picsum.photos/200/316",
-  "https://picsum.photos/200/317",
-  "https://picsum.photos/200/318",
-  "https://picsum.photos/200/319",
-  "https://picsum.photos/200/320",
-  "https://picsum.photos/200/321",
-  "https://picsum.photos/200/322",
-  "https://picsum.photos/200/323",
-  "https://picsum.photos/200/324",
-  "https://picsum.photos/200/325",
-  "https://picsum.photos/200/326",
-  "https://picsum.photos/200/327",
-  "https://picsum.photos/200/328",
-  "https://picsum.photos/200/329",
-  "https://picsum.photos/200/330",
-  "https://picsum.photos/200/331",
-  "https://picsum.photos/200/332",
-  "https://picsum.photos/200/333",
-  "https://picsum.photos/200/334",
-  "https://picsum.photos/200/335",
-  "https://picsum.photos/200/336",
-  "https://picsum.photos/200/337",
-  "https://picsum.photos/200/338",
-  "https://picsum.photos/200/339",
-  "https://picsum.photos/200/340",
-  "https://picsum.photos/200/341",
-  "https://picsum.photos/200/342",
-  "https://picsum.photos/200/343",
-  "https://picsum.photos/200/344",
-  "https://picsum.photos/200/345",
-  "https://picsum.photos/200/346",
-  "https://picsum.photos/200/347",
-
+  "https://picsum.photos/200/200?random=1",
+  "https://picsum.photos/200/200?random=2",
+  "https://picsum.photos/200/200?random=3",
+  "https://picsum.photos/200/200?random=4",
+  "https://picsum.photos/200/200?random=5",
+  "https://picsum.photos/200/200?random=6",
+  "https://picsum.photos/200/200?random=7",
+  "https://picsum.photos/200/200?random=8",
+  "https://picsum.photos/200/200?random=9",
+  "https://picsum.photos/200/200?random=10",
+  "https://picsum.photos/200/200?random=11",
+  "https://picsum.photos/200/200?random=12",
+  "https://picsum.photos/200/200?random=13",
+  "https://picsum.photos/200/200?random=14",
+  "https://picsum.photos/200/200?random=15",
+  "https://picsum.photos/200/200?random=16",
+  "https://picsum.photos/200/200?random=17",
+  "https://picsum.photos/200/200?random=18",
+  "https://picsum.photos/200/200?random=19",
+  "https://picsum.photos/200/200?random=20",
+  "https://picsum.photos/200/200?random=21",
+  "https://picsum.photos/200/200?random=22",
+  "https://picsum.photos/200/200?random=23",
+  "https://picsum.photos/200/200?random=24",
+  "https://picsum.photos/200/200?random=25",
+  "https://picsum.photos/200/200?random=26",
+  "https://picsum.photos/200/200?random=27",
+  "https://picsum.photos/200/200?random=28",
+  "https://picsum.photos/200/200?random=29",
+  "https://picsum.photos/200/200?random=30",
+  "https://picsum.photos/200/200?random=31",
+  "https://picsum.photos/200/200?random=32",
+  "https://picsum.photos/200/200?random=33",
+  "https://picsum.photos/200/200?random=34",
+  "https://picsum.photos/200/200?random=35",
+  "https://picsum.photos/200/200?random=36",
+  "https://picsum.photos/200/200?random=37",
+  "https://picsum.photos/200/200?random=38",
+  "https://picsum.photos/200/200?random=39",
+  "https://picsum.photos/200/200?random=40",
+  "https://picsum.photos/200/200?random=41",
+  "https://picsum.photos/200/200?random=42",
+  "https://picsum.photos/200/200?random=43",
+  "https://picsum.photos/200/200?random=44",
+  "https://picsum.photos/200/200?random=45",
+  "https://picsum.photos/200/200?random=46",
+  "https://picsum.photos/200/200?random=47",
+  "https://picsum.photos/200/200?random=48",
+  "https://picsum.photos/200/200?random=49",
+  "https://picsum.photos/200/200?random=50",
 ]
 
 # Create 10 user records
@@ -75,14 +76,151 @@ image_urls = [
 end
 
 # Create 20 event records
-40.times do
-  Event.create(
+events = [
+  {
     local: Faker::Address.full_address,
-    date: Faker::Date.forward(days: 365),
-    artist: Faker::Music.band,
-    age_rating: Faker::Number.between(from: 1, to: 18),
+    date: Faker::Date.between(from: Date.new(Date.today.year, 5, 18), to: Date.new(Date.today.year, 12, 31)),
+    artist: "Michael Jackson",
+    age_rating: [8, 10, 13, 15, "18+"].sample,
     photo: image_urls.sample
-  )
+  },
+  {
+    local: Faker::Address.full_address,
+    date: Faker::Date.between(from: Date.new(Date.today.year, 5, 18), to: Date.new(Date.today.year, 12, 31)),
+    artist: "Elvis Presley",
+    age_rating: [8, 10, 13, 15, "18+"].sample,
+    photo: image_urls.sample
+  },
+  {
+    local: Faker::Address.full_address,
+    date: Faker::Date.between(from: Date.new(Date.today.year, 5, 18), to: Date.new(Date.today.year, 12, 31)),
+    artist: "Frank Sinatra",
+    age_rating: [8, 10, 13, 15, "18+"].sample,
+    photo: image_urls.sample
+  },
+  {
+    local: Faker::Address.full_address,
+    date: Faker::Date.between(from: Date.new(Date.today.year, 5, 18), to: Date.new(Date.today.year, 12, 31)),
+    artist: "Bob Marley",
+    age_rating: [8, 10, 13, 15, "18+"].sample,
+    photo: image_urls.sample
+  },
+  {
+    local: Faker::Address.full_address,
+    date: Faker::Date.between(from: Date.new(Date.today.year, 5, 18), to: Date.new(Date.today.year, 12, 31)),
+    artist: "Madonna",
+    age_rating: [8, 10, 13, 15, "18+"].sample,
+    photo: image_urls.sample
+  },
+  {
+    local: Faker::Address.full_address,
+    date: Faker::Date.between(from: Date.new(Date.today.year, 5, 18), to: Date.new(Date.today.year, 12, 31)),
+    artist: "Eminem",
+    age_rating: [8, 10, 13, 15, "18+"].sample,
+    photo: image_urls.sample
+  },
+  {
+    local: Faker::Address.full_address,
+    date: Faker::Date.between(from: Date.new(Date.today.year, 5, 18), to: Date.new(Date.today.year, 12, 31)),
+    artist: "Beyoncé",
+    age_rating: [8, 10, 13, 15, "18+"].sample,
+    photo: image_urls.sample
+  },
+  {
+    local: Faker::Address.full_address,
+    date: Faker::Date.between(from: Date.new(Date.today.year, 5, 18), to: Date.new(Date.today.year, 12, 31)),
+    artist: "Prince",
+    age_rating: [8, 10, 13, 15, "18+"].sample,
+    photo: image_urls.sample
+  },
+  {
+    local: Faker::Address.full_address,
+    date: Faker::Date.between(from: Date.new(Date.today.year, 5, 18), to: Date.new(Date.today.year, 12, 31)),
+    artist: "David Bowie",
+    age_rating: [8, 10, 13, 15, "18+"].sample,
+    photo: image_urls.sample
+  },
+  {
+    local: Faker::Address.full_address,
+    date: Faker::Date.between(from: Date.new(Date.today.year, 5, 18), to: Date.new(Date.today.year, 12, 31)),
+    artist: "Aretha Franklin",
+    age_rating: [8, 10, 13, 15, "18+"].sample,
+    photo: image_urls.sample
+  },
+  {
+    local: Faker::Address.full_address,
+    date: Faker::Date.between(from: Date.new(Date.today.year, 5, 18), to: Date.new(Date.today.year, 12, 31)),
+    artist: "AC/DC",
+    age_rating: [8, 10, 13, 15, "18+"].sample,
+    photo: image_urls.sample
+  },
+  {
+    local: Faker::Address.full_address,
+    date: Faker::Date.between(from: Date.new(Date.today.year, 5, 18), to: Date.new(Date.today.year, 12, 31)),
+    artist: "Metallica",
+    age_rating: [8, 10, 13, 15, "18+"].sample,
+    photo: image_urls.sample
+  },
+  {
+    local: Faker::Address.full_address,
+    date: Faker::Date.between(from: Date.new(Date.today.year, 5, 18), to: Date.new(Date.today.year, 12, 31)),
+    artist: "The Rolling Stones",
+    age_rating: [8, 10, 13, 15, "18+"].sample,
+    photo: image_urls.sample
+  },
+  {
+    local: Faker::Address.full_address,
+    date: Faker::Date.between(from: Date.new(Date.today.year, 5, 18), to: Date.new(Date.today.year, 12, 31)),
+    artist: "Janis Joplin",
+    age_rating: [8, 10, 13, 15, "18+"].sample,
+    photo: image_urls.sample
+  },
+  {
+    local: Faker::Address.full_address,
+    date: Faker::Date.between(from: Date.new(Date.today.year, 5, 18), to: Date.new(Date.today.year, 12, 31)),
+    artist: "Johnny Cash",
+    age_rating: [8, 10, 13, 15, "18+"].sample,
+    photo: image_urls.sample
+  },
+  {
+    local: Faker::Address.full_address,
+    date: Faker::Date.between(from: Date.new(Date.today.year, 5, 18), to: Date.new(Date.today.year, 12, 31)),
+    artist: "Jimi Hendrix",
+    age_rating: [8, 10, 13, 15, "18+"].sample,
+    photo: image_urls.sample
+  },
+  {
+    local: Faker::Address.full_address,
+    date: Faker::Date.between(from: Date.new(Date.today.year, 5, 18), to: Date.new(Date.today.year, 12, 31)),
+    artist: "Oasis",
+    age_rating: [8, 10, 13, 15, "18+"].sample,
+    photo: image_urls.sample
+  },
+  {
+    local: Faker::Address.full_address,
+    date: Faker::Date.between(from: Date.new(Date.today.year, 5, 18), to: Date.new(Date.today.year, 12, 31)),
+    artist: "Ray Charles",
+    age_rating: [8, 10, 13, 15, "18+"].sample,
+    photo: image_urls.sample
+  },
+  {
+    local: Faker::Address.full_address,
+    date: Faker::Date.between(from: Date.new(Date.today.year, 5, 18), to: Date.new(Date.today.year, 12, 31)),
+    artist: "Nina Simone",
+    age_rating: [8, 10, 13, 15, "18+"].sample,
+    photo: image_urls.sample
+  },
+  {
+    local: Faker::Address.full_address,
+    date: Faker::Date.between(from: Date.new(Date.today.year, 5, 18), to: Date.new(Date.today.year, 12, 31)),
+    artist: "Bruno Mars",
+    age_rating: [8, 10, 13, 15, "18+"].sample,
+    photo: image_urls.sample
+  }
+]
+
+events.each do |event_params|
+  Event.create(event_params)
 end
 
 # Create 100 ticket records
