@@ -1,0 +1,10 @@
+<h1>Confirm your purchase:</h1>
+
+<h3>Local: <%= @event.local %></h3>
+<h3>Ticket price: R$<%= @ticket.price %></h3>
+<h3>Category: <%= @ticket.category %></h3>
+
+<%= simple_form_for [@event, @ticket, @order] do |f| %>
+<%= f.input :pay_method, collection: ["Credit Card", "PayPal"] %>
+  <%= f.submit "Buy ticket", class: "btn btn-primary" %>
+<% end %>

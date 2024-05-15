@@ -14,8 +14,11 @@ Rails.application.routes.draw do
   get "/news" => "pages#news"
 
   resources :users
-  resources :events, except: [:new, :create] do
-    resources :tickets, only: [:new, :create]
+  resources :events, except: %i[new create] do
+    resources :tickets, only: %i[new create] do
+      resources :orders, only: %i[new create]
+    end
   end
-  resources :tickets, except: [:new, :create]
+  resources :tickets, except: %i[new create]
+  resources :orders, only: :index
 end
