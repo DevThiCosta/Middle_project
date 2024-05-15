@@ -56,7 +56,6 @@ private
 
 # Only allow a trusted parameter "white list" through.
   def event_params
-    params.require(:user).permit(:name, :phone_number, :birth_date, :id_document, :country, :address, :password, :allow_alert)
+    params.require(:event).permit(:title, :body, :photo)
   end
-
 end

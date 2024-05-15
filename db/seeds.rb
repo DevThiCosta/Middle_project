@@ -80,7 +80,8 @@ end
     local: Faker::Address.full_address,
     date: Faker::Date.forward(days: 365),
     artist: Faker::Music.band,
-    age_rating: Faker::Number.between(from: 1, to: 18)
+    age_rating: Faker::Number.between(from: 1, to: 18),
+    photo: image_urls.sample
   )
 end
 
