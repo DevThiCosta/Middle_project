@@ -21,11 +21,11 @@
             </ul>
             <div class="tab-content mt-3">
               <div class="tab-pane fade show active" id="personal-info">
-                <p class="lead">Email: sdjgsfdihgbv@;dfjhn.com</p>
-                <p class="lead">Phone Number: 425-425-4255</p>
-                <p class="lead">Date of Birth: 01/01/0001</p>
-                <p class="lead">Identification Document: 95574544522</p>
-                <p class="lead">Address: Street: dfisxchjvbdifhbvnd</p>
+                <p class="lead editable">Email: sdjgsfdihgbv@;dfjhn.com</p>
+                <p class="lead editable">Phone Number: 425-425-4255</p>
+                <p class="lead editable">Date of Birth: 01/01/0001</p>
+                <p class="lead editable">Identification Document: 95574544522</p>
+                <p class="lead editable">Address: Street: dfisxchjvbdifhbvnd</p>
               </div>
               <div class="tab-pane fade" id="security-privacy">
                 <!-- Security and Privacy Information -->
@@ -52,9 +52,9 @@
     </div>
     <div class="row mt-3">
       <div class="col-md-12 text-center">
-        <a href="#" class="btn btn-primary">Edit Profile</a>
+        <button id="edit-profile-btn" class="btn btn-primary">Edit Profile</button>
         <%= link_to "Return to Home", root_path, class: "btn btn-secondary" %>
-        <button class="btn btn-danger">Delete account</button>
+          <button id="delete-account-btn" class="btn btn-danger">Delete account</button>
       </div>
     </div>
   </div>
@@ -81,4 +81,19 @@
         document.getElementById(targetTabId).classList.add('show', 'active');
       });
     });
-  </script>
+
+      // Add click event listener to the "Edit Profile" button
+      var editProfileBtn = document.getElementById('edit-profile-btn');
+      editProfileBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        // Toggle the content of all editable elements between editable and non-editable states
+        document.querySelectorAll('.form-control').forEach(element => {
+          element.contentEditable = !element.isContentEditable;
+          element.classList.toggle('form-control');
+        });
+
+        // Change the text of the button based on the current state
+        editProfileBtn.textContent = editProfileBtn.textContent === 'Edit Profile' ? 'Save Profile' : 'Edit Profile';
+      });
+    </script>
