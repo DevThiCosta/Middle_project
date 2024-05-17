@@ -1,31 +1,36 @@
-<div class="banner" style="background-image: url('<%= @event.photo %>'); background-repeat: no-repeat; background-size: cover; width:100%">
-  <h1 class="text-white"><%= @event.artist %></h1>
-  <h3 class="text-white"><%= @event.local %></h3>
+<div class="banner p-5" style="background-image: url('<%= @event.photo %>'); background-repeat: no-repeat; background-size: cover;">
+  <h1 class="display-4"><%= @event.artist %></h1>
 </div>
 
-<div class="container">
+<div class="mt-4" style="font-family: 'Indie Flower', cursive;">
   <div class="row">
     <div class="col-md-8">
       <div class="description">
         <h2>Descrição</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti tenetur delectus id dolor iste accusantium. Eveniet harum dolorum iure dignissimos laborum quod cumque! Maiores vitae quisquam, quos libero in veritatis.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, alias veniam! Ratione dolores, distinctio doloremque placeat illum, delectus quisquam dolore in recusandae porro rerum expedita commodi veniam ipsa harum. Sequi.</p>
+
+        <h2>Local</h2>
+        <p><%= @event.local %></p>
       </div>
     </div>
     <div class="col-md-4">
-      <div class="tickets-container">
-        <h2 class="mt-5">Ingressos</h2>
+      <div class="container tickets-available">
         <ul class="list-group">
           <% @tickets.each do |ticket| %>
-            <li class="list-group-item">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
               <div>
-                <p><%= ticket.sector %></p>
-                <small> R$<%= ticket.price %> </small>
-                <%= link_to "Buy ticket", new_event_ticket_order_path(@event, ticket), class: "btn btn-primary" %>
+                <span class="mr-2">Setor: <%= ticket.sector %> - <%= ticket.category.join(", ") %></span>
+                <span class="mr-2">R$<%= sprintf("%.2f", ticket.price) %></span>
               </div>
+              <%= link_to "Comprar ingresso", new_event_ticket_order_path(@event, ticket), class: "btn btn-primary" %>
             </li>
           <% end %>
-          <%= link_to "Sell ticket", new_event_ticket_path(@event.id), class: "btn btn-success mt-3" %>
         </ul>
+        </div>
+      </div>
+      </div>
+      <div class="sell-ticket">
+        <%= link_to "Vender ingresso", new_event_ticket_path(@event.id), class: "btn btn-success" %>
       </div>
     </div>
   </div>

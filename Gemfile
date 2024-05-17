@@ -50,6 +50,7 @@ gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem "faker"
+gem 'cpf_faker'
 gem 'devise', '~> 4.9', '>= 4.9.4'
 gem "cloudinary"
 
