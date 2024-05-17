@@ -1,16 +1,15 @@
 <div class="row">
-  <% Ticket.all.each_slice(6) do |tickets| %>
-    <% tickets.each do |ticket| %>
-      <div class="col-md-2">
-        <div class="card m-2">
-          <%= image_tag ticket.event.photo, class: "card-image", alt: "Card image" %>
-          <div class="card-body">
-            <h5 class="card-name"><%= ticket.event.artist %></h5>
-            <p class="card-price">R$ <%= sprintf("%.2f", ticket.price) %></p>
-          </div>
+  <% Ticket.all.each do |ticket| %>
+    <div class="col-md-2">
+      <div class="card m-2">
+        <%= image_tag ticket.event.photo, class: "card-image", alt: "Card image" %>
+        <div class="card-body">
+          <h5 class="card-name"><%= ticket.event.artist %></h5>
+          <p class="card-price">R$ <%= sprintf("%.2f", ticket.price) %></p>
+          <%= link_to "Ver detalhes", "/events/#{ticket.event.id}", class: "card-link" %>
         </div>
       </div>
-    <% end %>
+    </div>
   <% end %>
 </div>
 
