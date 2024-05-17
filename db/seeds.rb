@@ -7,6 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+Faker::Config.locale = 'pt-BR'
 image_urls = [
   "https://picsum.photos/200/200?random=1",
   "https://picsum.photos/200/200?random=2",
@@ -64,16 +65,26 @@ image_urls = [
 10.times do
  p User.create!(
     name: "#{Faker::Name.first_name} #{Faker::Name.last_name}",
-    phone_number: Faker::PhoneNumber.phone_number.to_i,
+    phone_number: Faker::PhoneNumber.phone_number,
     birth_date: Faker::Date.birthday(min_age: 18, max_age: 65),
-    id_document: Faker::IdNumber.valid,
+    id_document: Faker::CPF.cpf,
     address: Faker::Address.full_address,
     encrypted_password: Faker::Internet.password(min_length: 8),
     allow_alert: [true, false].sample,
-    email: Faker::Internet.email,
-    password: Faker::Internet.password(min_length: 8),
+    email: Faker::Internet.email
   )
 end
+
+p User.create!(
+   name: "thiago",
+   phone_number: Faker::PhoneNumber.phone_number,
+   birth_date: Faker::Date.birthday(min_age: 18, max_age: 65),
+   id_document: Faker::CPF.cpf,
+   address: Faker::Address.full_address,
+   encrypted_password: "123456",
+   allow_alert: [true, false].sample,
+   email: "thiago@teste.com"
+ )
 
 # Create 20 event records
 events = [
