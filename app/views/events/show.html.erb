@@ -1,16 +1,29 @@
-<h1><%= @event.local %></h1>
+<div class="banner">
+  <img src="path/to/your/banner-image.jpg" alt="Event Banner">
+  <h1><%= @event.artist %></h1>
+  <h3><%= @event.local %></h3>
+  <button class="buy-button">Buy Tickets</button>
+</div>
+  <h1><%= @event.artist %></h1>
+  <h3><%= @event.local %></h3>
+  <button class="buy-button">Buy Tickets</button>
+</div>
 
-
-<%= link_to "Sell ticket", new_event_ticket_path(@event.id)  %>
+<div class="row">
+  <div class="col-12">
+   <%= image_tag @event.photo, class: "card-image", alt: "Card image" %>
+  </div>
+</div>
 
 <ul>
-<% @tickets.each do |ticket| %>
-<li>
-<div>
-<p><%= ticket.sector %></p>
-<small> R$<%= ticket.price %> </small>
-<%= link_to "Buy ticket", new_event_ticket_order_path(@event, ticket) %>
-</div>
-</li>
-<% end %>
+  <% @tickets.each do |ticket| %>
+    <li>
+      <div>
+        <p><%= ticket.sector %></p>
+        <small> R$<%= ticket.price %> </small>
+        <%= link_to "Buy ticket", new_event_ticket_order_path(@event, ticket) %>
+      </div>
+    </li>
+  <% end %>
+<%= link_to "Sell ticket", new_event_ticket_path(@event.id)  %>
 </ul>
