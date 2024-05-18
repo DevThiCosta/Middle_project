@@ -62,3 +62,4 @@ class TicketsController < ApplicationController
     params.require(:ticket).permit(:price, :category, :sector)
   end
 end
+
