@@ -1,16 +1,42 @@
-<h1><%= @event.local %></h1>
-
-
-<%= link_to "Sell ticket", new_event_ticket_path(@event.id)  %>
-
-<ul>
-<% @tickets.each do |ticket| %>
-<li>
-<div>
-<p><%= ticket.sector %></p>
-<small> R$<%= ticket.price %> </small>
-<%= link_to "Buy ticket", new_event_ticket_order_path(@event, ticket) %>
+<div class="banner p-5" style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);">
+  <h1 class="display-4" style="color: white;"><%= @event.artist %></h1>
 </div>
-</li>
-<% end %>
-</ul>
+
+<div class="mt-4" style="font-family: 'Indie Flower', cursive;">
+    <div class="col-md-12">
+      <div class="description">
+        <h2>Descrição</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur hic provident quia laborum ipsa suscipit perspiciatis expedita voluptatem enim fugiat. Eveniet sequi dolor qui similique illo sed, impedit vel? Aspernatur!Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi voluptates maiores nisi voluptatem. Quo saepe veniam odio quis! Doloremque, pariatur? Illo provident, delectus numquam iure consequuntur placeat expedita blanditiis laudantium.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, alias veniam! Ratione dolores, distinctio doloremque placeat illum, delectus quisquam dolore in recusandae porro rerum expedita commodi veniam ipsa harum. Sequi.</p>
+
+        <h2>Local</h2>
+        <p><%= @event.local %></p>
+      </div>
+    </div>
+  <div class="row">
+    <div class="card-arena col-md-8">
+      <%= image_tag 'https://res.cloudinary.com/dxf2n51ev/image/upload/v1715969622/middleLeWagon/Arenas/tjowpr6d043nl3jf9wwg.png' %>
+    </div>
+    <div class="col-md-4">
+      <div class="container tickets-available">
+        <ul class="list-group">
+          <% @tickets.each do |ticket| %>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <span class="mr-2">Setor: <%= ticket.sector %> - <%= ticket.category.join(", ") %></span>
+                <span class="mr-2">R$<%= sprintf("%.2f", ticket.price) %></span>
+              </div>
+              <%= link_to "Comprar ingresso", new_event_ticket_order_path(@event, ticket), class: "btn btn-primary" %>
+            </li>
+          <% end %>
+        </ul>
+        </div>
+      </div>
+      <div class="sell-ticket">
+        <%= link_to "Vender ingresso", new_event_ticket_path(@event.id), class: "btn btn-success" %>
+      </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

@@ -1,8 +1,7 @@
 class TicketsController < ApplicationController
-
-  before_action :set_ticket, only: [:show, :edit, :update, :destroy]
-  before_action :set_user, only: [:new, :create, :edit, :update]
-  before_action :set_event, only: [:new, :create, :edit, :update]
+  before_action :set_ticket, only: %i[show edit update destroy]
+  before_action :set_user, only: %i[new create edit update]
+  before_action :set_event, only: %i[new create edit update]
   before_action :authenticate_user!
 
   def index
@@ -26,9 +25,9 @@ class TicketsController < ApplicationController
     @ticket.event = @event
     if @ticket.save
       redirect_to event_path(@event)
-      else
-        render :new, status: :unprocessable_entity
-      end
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -62,5 +61,5 @@ class TicketsController < ApplicationController
   def ticket_params
     params.require(:ticket).permit(:price, :category, :sector)
   end
-
 end
+

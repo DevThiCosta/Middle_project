@@ -1,7 +1,8 @@
-<h1>Sell ticket</h1>
+<h1>Cadastre seu ingresso</h1>
 <%= simple_form_for [@event, @ticket] do |f| %>
-  <%= f.input :price %>
-  <%= f.input :sector %>
-  <%= f.input :category, collection: [["VIP"], ["Economy"]] %>
-  <%= f.submit "Sell ticket", class: "btn btn-primary" %>
+  <%= f.input :price, label: "Preço" %>
+  <%= f.input :sector, label: "Setor" %>
+  <%# <%= f.input :event, collection: Event.all.map { |event| [event.artist, event.id] }, label: "Evento" %> 
+  <%= f.input :category, collection: [['VIP'], ['Regular'], ['Economy']], label: "Categoria" %>
+  <%= f.submit "Vender ingresso", class: "btn btn-primary" %>
 <% end %>

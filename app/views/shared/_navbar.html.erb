@@ -1,25 +1,23 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">
     <%= link_to root_path do %>
-      <%= image_tag "logo.png", class: "logo", alt: "logo", style: "width: 100px; height: 100px;" %>
+      <%= image_tag "logo.png", class: "logo img-fluid", alt: "logo", style: "width: 70%; height: auto;" %>
     <% end %>
   </a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
   <div class="container">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <form class="form-inline my-2 my-lg-0">
-        <div class="input-group">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search" id="searchInput">
-          <div class="input-group-append">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit" onclick="filterCards()">Search</button>
-          </div>
+      <div class="input-group">
+        <input type="text" id="searchInput"class="form-control" placeholder="Search...">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button">Search</button>
         </div>
-      </form>
+      </div>
     </div>
   </div>
-  <ul class="navbar-nav ms-auto">
+  <ul class="navbar-nav " style="margin-right: 50px;">
     <li class="nav-item mb-2">
       <%= link_to root_path, class: "nav-link" do %>
         <i class="fas fa-home"></i> Home
@@ -46,10 +44,12 @@
           <%= image_tag("NoLoginAvatar.png", class: "avatar-large", alt: "avatar-large", style: "width: 50px; height: 50px;") %>
         </button>
         <ul class="dropdown-menu">
-          <li><%= link_to "Login", new_user_session_path, class:"dropdown-item" %></li>
           <% if user_signed_in? %>
             <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
             <li><%= link_to "Meus Tickets", tickets_path, class: "dropdown-item" %></li>
+            <li><%= link_to "Meu Perfil", users_path, class: "dropdown-item" %></li>
+          <% else %>
+            <li><%= link_to "Login", new_user_session_path, class:"dropdown-item" %></li>
           <% end %>
         </ul>
       </div>

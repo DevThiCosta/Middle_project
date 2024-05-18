@@ -14,15 +14,11 @@ export default class extends Controller {
 
     this.cardTargets.forEach((card, index) => {
       const cardContent = card.textContent.toLowerCase();
-      if (cardContent.includes(searchValue)) {
-        card.style.display = 'block';
-        this.imageTargets[index].style.display = 'block';
-        card.classList.add('visible-card');
-      } else {
-        card.style.display = 'none';
-        this.imageTargets[index].style.display = 'none';
-        card.classList.remove('visible-card');
-      }
+      const isMatch = cardContent.includes(searchValue);
+
+      card.style.display = isMatch? 'block' : 'none';
+      this.imageTargets[index].style.display = isMatch? 'block' : 'none';
+      card.classList.toggle('visible-card', isMatch);
     });
   }
 
