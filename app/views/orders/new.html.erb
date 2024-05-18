@@ -8,7 +8,7 @@
         <h2>Confirm your purchase</h2>
         <h4>Local: <%= @event.local %></h4>
         <h4>Ticket price: R$<%= @ticket.price %></h4>
-        <h4>Category: <%= @ticket.category %></h4>
+        <h4>Category: <%= @ticket.category.join %></h4>
         <%= simple_form_for [@event, @ticket, @order] do |f| %>
         <%= f.input :pay_method, collection: ["Credit Card", "PayPal"] %>
           <%= f.submit "Buy ticket", class: "btn btn-primary" %>
