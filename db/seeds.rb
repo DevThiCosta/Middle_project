@@ -17,6 +17,7 @@ arenas_urls = [
 
 
 # Create 10 user records
+puts "creating users"
 10.times do
   p User.create!(
     name: "#{Faker::Name.first_name} #{Faker::Name.last_name}",
@@ -46,6 +47,7 @@ p User.create!(
 )
 
 # Create 20 event records
+puts "creating events"
 events = [
   {
     local: Faker::Address.full_address,
@@ -235,12 +237,13 @@ events = [
 end
 
 # Create 100 ticket records
+puts "creating tickets"
 100.times do
   p Ticket.create!(
     price: Faker::Number.decimal(l_digits: 3, r_digits: 3),
     sector: Faker::Number.between(from: 1, to: 10),
     category: [['VIP'], ['Regular'], ['Economy']].sample,
     event: Event.all.sample,
-    user: User.all.sample
+    user_id: User.all.sample.id
   )
 end
