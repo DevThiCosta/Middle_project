@@ -1,18 +1,18 @@
-<div class="banner p-5" style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);">
-  <h1 class="display-4" style="color: white;"><%= @event.artist %></h1>
-</div>
+<%= render "shared/banner" %>
 
 <div class="mt-4" style="font-family: 'Indie Flower', cursive;" >
     <div class="col-md-12">
-      <div class="description">
+      <div class="description container">
         <h2>Confirm your purchase</h2>
         <h4>Local: <%= @event.local %></h4>
         <h4>Ticket price: R$<%= @ticket.price %></h4>
         <h4>Category: <%= @ticket.category.join %></h4>
-        <%= simple_form_for [@event, @ticket, @order] do |f| %>
-        <%= f.input :pay_method, collection: ["Credit Card", "PayPal"] %>
-          <%= f.submit "Buy ticket", class: "btn btn-primary" %>
-        <% end %>
+        <div class="container m-2">
+          <%= simple_form_for [@event, @ticket, @order] do |f| %>
+          <%= f.input :pay_method, collection: ["Credit Card", "PayPal"] %>
+            <%= f.submit "Buy ticket", class: "btn btn-primary" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
