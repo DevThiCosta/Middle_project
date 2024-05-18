@@ -1,7 +1,8 @@
-<h1>Here you are your order</h1>
-
-<% @orders.each do |order| %>
+<h1 class="text-center">Here you are your order</h1>
+<% @orders.group_by(&:event).each do |event, orders| %>
   <div class="container">
-    <p><%= order.event.local %></p>
+    <h2><%= event.artist %></h2>
+    <p><%= event.local %></p>
+    <p><%= "Número de pedidos: #{orders.size}" %></p>
   </div>
 <% end %>
