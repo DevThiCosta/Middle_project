@@ -6,12 +6,14 @@
     <div class="col-md-12">
       <div class="description container">
         <% @orders.group_by(&:event).each do |event, orders| %>
-          <div class="container">
+            <div class="container">
             <h2><%= event.artist %></h2>
             <p><%= event.local %></p>
             <p><%= "Número de pedidos: #{orders.size}" %></p>
-          </div>
+            </div>
         <% end %>
+      <h4>Enviamos um email com os detalhes da sua compra. Siga as instruções para confirmar o pagamento e receber o seu ingresso de forma online e prática. 😉</h4>
+          </div>
       </div>
     </div>
   </div>
