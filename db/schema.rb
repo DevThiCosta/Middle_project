@@ -57,11 +57,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_15_001516) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "ticket_id", null: false
-    t.bigint "user_id", null: false
     t.bigint "event_id", null: false
     t.index ["event_id"], name: "index_orders_on_event_id"
     t.index ["ticket_id"], name: "index_orders_on_ticket_id"
-    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "tickets", force: :cascade do |t|
@@ -98,7 +96,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_15_001516) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "orders", "events"
   add_foreign_key "orders", "tickets"
-  add_foreign_key "orders", "users"
   add_foreign_key "tickets", "events"
   add_foreign_key "tickets", "users"
 end

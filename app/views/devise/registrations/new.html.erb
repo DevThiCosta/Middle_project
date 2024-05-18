@@ -25,10 +25,11 @@
                       input_html: { autocomplete: "tel", class: 'form-control' } %>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" data-controller="flatpickr" >
           <%= f.input :birth_date,
                       required: true,
-                      input_html: { autocomplete: "bday", min: "1940-01-01", class: 'form-control' } %>
+                      as: :string,
+                      input_html: { data: { controller: "flatpickr" }, autocomplete: "bday", min: "1940-01-01", class: 'form-control' } %>
         </div>
 
         <div class="form-group">
