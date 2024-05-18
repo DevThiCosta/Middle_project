@@ -1,22 +1,20 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">
     <%= link_to root_path do %>
-      <%= image_tag "logo.png", class: "logo", alt: "logo", style: "width: 100px; height: 100px;" %>
+      <%= image_tag "logo.png", class: "logo img-fluid", alt: "logo", style: "width: 70%; height: auto;" %>
     <% end %>
   </a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
   <div class="container">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <form class="form-inline my-2 my-lg-0">
-        <div class="input-group">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search" id="searchInput" style="width: 300px;">
-          <div class="input-group-append">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit" onclick="filterCards()">Search</button>
-          </div>
+      <div class="input-group">
+        <input type="text" id="searchInput"class="form-control" placeholder="Search...">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button">Search</button>
         </div>
-      </form>
+      </div>
     </div>
   </div>
   <ul class="navbar-nav " style="margin-right: 50px;">

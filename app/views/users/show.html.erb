@@ -1,100 +1,138 @@
 <div class="container mt-5">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <!-- User Avatar -->
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large", style: "width: 120px; height: 120px;" %>
-      </div>
-      <div class="col-md-8 mx-auto">
-        <div class="card">
-          <h1 class="display-4 text-center"><%= @user.name %></h1>
-          <div class="card-body">
-            <ul class="nav nav-tabs justify-content-center">
-              <li class="nav-item">
-                <a class="nav-link active" data-tab="personal-info" href="#">Personal Information</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" data-tab="security-privacy" href="#">Security and Privacy</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" data-tab="preferences" href="#">Preferences</a>
-              </li>
-            </ul>
-            <div class="tab-content mt-3">
-              <div class="tab-pane fade show active" id="personal-info">
-                <p class="lead editable">Email: <%= @user.email %></p>
-                <p class="lead editable">Telefone: <%= @user.phone_number %></p>
-                <p class="lead editable">Aniversario: <%= @user.birth_date %></p>
-                <p class="lead editable">CPF: <%= @user.id_document %></p>
-                <p class="lead editable">Endereco: <%= @user.address %></p>
-              <div class="tab-pane fade" id="security-privacy">
-                <!-- Security and Privacy Information -->
-                <p class="lead">Security and privacy information goes here...</p>
-                <p class="lead">Password: <span id="password" class="password"><%= @user.encrypted_password %></span></p>
-                <button id="toggle-password-btn" class="btn btn-link">Show Password</button>
-              </div>
-              </div>
-              <div class="tab-pane fade" id="configurations">
-                <!-- Configuration Form -->
-                <form>
-                  <!-- Add configuration form fields here -->
-                </form>
-              </div>
-              <div class="tab-pane fade" id="preferences">
-                <!-- Preferences Form -->
-                <form>
-                  <!-- Add preferences form fields here -->
-                </form>
-              </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <!-- User Avatar -->
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large", style: "width: 120px; height: 120px;" %>
+    </div>
+    <div class="col-md-8 mx-auto">
+      <div class="card">
+        <h1 class="display-4 text-center"><%= @user.name %></h1>
+        <div class="card-body">
+          <ul class="nav nav-tabs justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link active" data-tab="personal-info" href="#">Informações Pessoais</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-tab="security-privacy" href="#">Segurança e Privacidade</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-tab="preferences" href="#">Preferências</a>
+            </li>
+          </ul>
+          <div class="tab-content mt-3">
+            <div class="tab-pane fade show active" id="personal-info">
+              <p class="lead editable">Email: <%= @user.email %></p>
+              <p class="lead editable">Telefone: <%= @user.phone_number %></p>
+              <p class="lead editable">Data de Nascimento: <%= @user.birth_date %></p>
+              <p class="lead editable">CPF: <%= @user.id_document %></p>
+              <p class="lead editable">Endereço: <%= @user.address %></p>
+            </div>
+            <div class="tab-pane fade" id="security-privacy">
+              <!-- Informações de Segurança e Privacidade -->
+              <p class="lead">Senha: <span id="password" class="password"><%= @user.encrypted_password %></span><button id="toggle-password-btn" class="btn btn-link"><i class="fas fa-eye"></i></button></p>
+            </div>
+            <div class="tab-pane fade" id="preferences">
+              <!-- Formulário de Preferências -->
+              <form>
+                <!-- Adicione os campos do formulário de preferências aqui -->
+                <div class="form-group">
+                  <label for="language">Idioma:</label>
+                  <select class="form-control" id="language" name="language">
+                    <option value="French">Português (BR)</option>
+                    <option value="English">Inglês</option>
+                    <option value="Spanish">Espanhol</option>
+                    <option value="French">Francês</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="currency">Moeda:</label>
+                    <select class="form-control" id="currency" name="currency">
+                    <option value="BRL">BRL</option>
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="JPY">JPY</option>
+                    </select>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="theme">Tema:</label>
+                  <select class="form-control" id="theme" name="theme">
+                    <option value="Light">Claro</option>
+                    <option value="Dark">Escuro</option>
+                    <option value="Colorful">Colorido</option>
+                  </select>
+                </div>
+              </form>
             </div>
           </div>
-          <!-- Delete button -->
         </div>
-      </div>
-    </div>
-    <div class="row mt-3">
-      <div class="col-md-12 text-center">
-        <button id="edit-profile-btn" class="btn btn-primary">Edit Profile</button>
-        <%= link_to "Return to Home", root_path, class: "btn btn-secondary" %>
-          <button id="delete-account-btn" class="btn btn-danger">Delete account</button>
+        <!-- Botão de Excluir -->
       </div>
     </div>
   </div>
+  <div class="row mt-3">
+    <div class="col-md-12 text-center">
+      <button id="edit-profile-btn" class="btn btn-primary">Editar Perfil</button>
+      <%= link_to "Voltar para a Página Inicial", root_path, class: "btn btn-secondary" %>
+      <button id="delete-account-btn" class="btn btn-danger">Excluir Conta</button>
+    </div>
+  </div>
+</div>
 
-  <script>
-    // Get all the tab links
-    var tabLinks = document.querySelectorAll('.nav-link');
+<script>
+  const togglePassword = document.querySelector("#toggle-password-btn");
+  const password = document.querySelector("#password");
 
-    // Add click event listeners to each tab link
-    tabLinks.forEach(tabLink => {
-      tabLink.addEventListener('click', (event) => {
-        console.log('clicked');
-        event.preventDefault();
+  togglePassword.addEventListener("click", function () {
+    // Alterna o atributo 'type' entre "text" e "password"
+    const type = password.getAttribute("type") === "password" ? "text" : "password";
+    password.setAttribute("type", type);
 
-        // Get the target tab ID from the data-tab attribute
-        const targetTabId = tabLink.getAttribute('data-tab');
+    // Alterna o ícone
+    this.querySelector("i").classList.toggle("bi-eye");
+    this.querySelector("i").classList.toggle("bi-eye-slash");
+  });
 
-        // Remove the 'active' class from all tab links and tab panes
-        tabLinks.forEach(link => link.classList.remove('active'));
-        document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('show', 'active'));
+  // Impede o envio do formulário
+  const form = document.querySelector("form");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+  });
 
-        // Add the 'active' class to the clicked tab link and show the corresponding tab pane
-        tabLink.classList.add('active');
-        document.getElementById(targetTabId).classList.add('show', 'active');
-      });
+  // Obtém todos os links de guias
+  var tabLinks = document.querySelectorAll('.nav-link');
+
+  // Adiciona ouvintes de evento de clique a cada link de guia
+  tabLinks.forEach(tabLink => {
+    tabLink.addEventListener('click', (event) => {
+      console.log('clicado');
+      event.preventDefault();
+
+      // Obtém o ID da guia de destino do atributo data-tab
+      const targetTabId = tabLink.getAttribute('data-tab');
+
+      // Remove a classe 'active' de todos os links de guia e painéis de guia
+      tabLinks.forEach(link => link.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('show', 'active'));
+
+      // Adiciona a classe 'active' ao link de guia clicado e mostra o painel de guia correspondente
+      tabLink.classList.add('active');
+      document.getElementById(targetTabId).classList.add('show', 'active');
+    });
+  });
+
+  // Adiciona ouvinte de evento de clique ao botão "Editar Perfil"
+  var editProfileBtn = document.getElementById('edit-profile-btn');
+  editProfileBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    // Alterna o conteúdo de todos os elementos editáveis entre os estados editável e não editável
+    document.querySelectorAll('.form-control').forEach(element => {
+      element.contentEditable = !element.isContentEditable;
+      element.classList.toggle('form-control');
     });
 
-      // Add click event listener to the "Edit Profile" button
-      var editProfileBtn = document.getElementById('edit-profile-btn');
-      editProfileBtn.addEventListener('click', (event) => {
-        event.preventDefault();
-
-        // Toggle the content of all editable elements between editable and non-editable states
-        document.querySelectorAll('.form-control').forEach(element => {
-          element.contentEditable = !element.isContentEditable;
-          element.classList.toggle('form-control');
-        });
-
-        // Change the text of the button based on the current state
-        editProfileBtn.textContent = editProfileBtn.textContent === 'Edit Profile' ? 'Save Profile' : 'Edit Profile';
-      });
-    </script>
+    // Altera o texto do botão com base no estado atual
+    editProfileBtn.textContent = editProfileBtn.textContent === 'Editar Perfil' ? 'Salvar Perfil' : 'Editar Perfil';
+  });
+</script>
